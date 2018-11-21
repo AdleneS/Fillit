@@ -29,6 +29,8 @@ int		main(int argc, char **argv)
 		return (0);
 	if (!(lst = file_reader(open(argv[1], O_RDONLY), lst)))
 		return (fill_error());
+	if (count_piece(lst) > 26)
+		return (fill_error());
 	fill_solve(map, lst);
 	return (0);
 }

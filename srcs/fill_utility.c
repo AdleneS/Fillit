@@ -39,3 +39,18 @@ void		display(char **tab)
 		tab++;
 	}
 }
+
+int			count_piece(t_fill *orilst)
+{
+	int		count;
+	t_fill	*tmp;
+
+	count = 0;
+	tmp = orilst;
+	while (tmp)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}

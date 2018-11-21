@@ -16,35 +16,27 @@
 int		checkchar(char *piece, int countd, int countp)
 {
 	int		i;
+	int		n;
 
 	i = -1;
+	n = 0;
 	if (piece[0] != '#' && piece[0] != '.')
 		return (0);
 	while (piece[++i])
 	{
+		if (piece[i] == '\n')
+			n = 0;
+		if (n > 4)
+			return (0);
 		if (piece[i] == '#')
 			countd++;
 		if (piece[i] == '.')
 			countp++;
+		n++;
 	}
 	if (countd != 4 || countp != 12)
 		return (0);
 	return (countd);
-}
-
-int		count_piece(t_fill *orilst)
-{
-	int		count;
-	t_fill	*tmp;
-
-	count = 0;
-	tmp = orilst;
-	while (tmp)
-	{
-		count++;
-		tmp = tmp->next;
-	}
-	return (count);
 }
 
 int		check_nexto(char *piece, int i, int count)
